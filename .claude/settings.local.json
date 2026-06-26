@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell *)",
+      "Bash(pip install *)",
+      "Bash(uv venv *)",
+      "Bash(uv pip *)",
+      "Bash(.venv/Scripts/python main.py maze --size 15 --method all --seed 7)"
+    ]
+  }
+}
