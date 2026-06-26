@@ -67,6 +67,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     maze_parser.set_defaults(handler=run_maze_task)
 
+
     resource_parser = subparsers.add_parser(
         "resource",
         aliases=["task2", "任务二"],
@@ -263,6 +264,14 @@ def run_boss_task(args: argparse.Namespace) -> None:
     print(f"战后剩余金币：{remaining_coins}")
     print(f"金币是否足以完成战斗：{yes_no(bool(survived))}")
     print()
+    if not survived:
+        print("=" * 50)
+        print("  GAME OVER")
+        print(f"  Total rounds: {total_rounds}, minRouds: {round_limit}")
+        print(f"  Revives needed: {required_revives} x {plan.revive_coin} = {spent_coins} coins")
+        print(f"  Player coins: {args.coins}, short by: {spent_coins - args.coins}")
+        print("=" * 50)
+        print()
     print("【提示】explore_maze() 自动从迷宫G收集金币传入BOSS战，打通全流程。")
 
     hp_args = " ".join(str(value) for value in args.boss_hp)
